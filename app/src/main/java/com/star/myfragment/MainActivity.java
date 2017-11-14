@@ -1,5 +1,6 @@
 package com.star.myfragment;
 
+import android.content.res.Configuration;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -18,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
         fm = getSupportFragmentManager();
         frag1 = (Fragment1) fm.findFragmentById(R.id.fragment);
         frag2 = (Fragment2) fm.findFragmentById(R.id.fragment2);
-        showFragment1();
+//        showFragment1();
+        decideDevice();
     }
 
     public void showFragment1() {
@@ -30,6 +32,18 @@ public class MainActivity extends AppCompatActivity {
         ft = fm.beginTransaction();
         ft.hide(frag1).show(frag2).commit();   // 隱藏frag1  只顯示frag2
     }
+
+    void decideDevice()
+    {
+        switch ( getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK)
+        {
+            case Configuration.SCREENLAYOUT_SIZE_SMALL:
+            case Configuration.SCREENLAYOUT_SIZE_NORMAL:
+                showFragment1();
+                break;
+        }
+    }
+
     //Fragment的監聽器
 //    Fragment1.OnFragmentInteractionListener listener1 = new Fragment1.OnFragmentInteractionListener() {
 //        @Override
