@@ -66,8 +66,8 @@ public class Fragment2 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment2, container, false);
-        Button button2 = (Button) view.findViewById(R.id.button2);
-        button2.setOnClickListener(new View.OnClickListener() {
+        Button button1 = (Button) view.findViewById(R.id.button2);
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ( (MainActivity)getActivity() ).showFragment1(); //取得

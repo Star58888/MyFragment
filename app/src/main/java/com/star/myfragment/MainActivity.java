@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         fm = getSupportFragmentManager();
         frag1 = (Fragment1) fm.findFragmentById(R.id.fragment);
         frag2 = (Fragment2) fm.findFragmentById(R.id.fragment2);
-//        showFragment1();
         decideDevice();
     }
 
@@ -40,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
             case Configuration.SCREENLAYOUT_SIZE_SMALL:
             case Configuration.SCREENLAYOUT_SIZE_NORMAL:
                 showFragment1();
+                break;
+        }
+        switch ( getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) {
+            case Configuration.SCREENLAYOUT_SIZE_SMALL:
+            case Configuration.SCREENLAYOUT_SIZE_NORMAL:
+                showFragment2();
                 break;
         }
     }
